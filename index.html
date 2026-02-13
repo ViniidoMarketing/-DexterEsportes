@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dexter Esportes | Performance e Estilo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-escuro: #004d2c;
+            --verde-lima: #32CD32;
+            --dourado: #D4AF37;
+            --branco: #ffffff;
+            --gelo: #f4f4f4;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--gelo);
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Logo --- */
+        header {
+            background-color: var(--verde-escuro);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--dourado);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: var(--branco);
+            font-weight: 900;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--dourado);
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--dourado);
+        }
+
+        /* --- Banner Principal --- */
+        .hero-banner {
+            background-color: var(--verde-lima);
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            color: var(--verde-escuro);
+            padding: 20px;
+        }
+
+        .hero-banner h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 0px var(--branco);
+        }
+
+        /* --- Faixa com Estampa Esportiva --- */
+        .faixa-estampada {
+            background-color: var(--verde-escuro);
+            background-image: radial-gradient(var(--dourado) 0.5px, transparent 0.5px);
+            background-size: 20px 20px; /* Simula uma estampa de textura esportiva/mesh */
+            color: var(--dourado);
+            padding: 15px 0;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            border-top: 2px solid var(--dourado);
+            border-bottom: 2px solid var(--dourado);
+        }
+
+        /* --- Grade de Produtos --- */
+        .container {
+            padding: 50px 5%;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .produto-card {
+            background: var(--branco);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            /* Sombra dourada ao redor das abas/bordas conforme solicitado */
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeito de movimento nos produtos */
+        .produto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #eee;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 3rem;
+            animation: bounce 2s infinite ease-in-out; /* Movimento contínuo */
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .produto-card h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 10px;
+        }
+
+        .preco {
+            color: var(--dourado);
+            font-weight: 900;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* --- Botão WhatsApp --- */
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128c7e;
+            transform: scale(1.05);
+        }
+
+        .float-wpp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        footer {
+            background: var(--verde-escuro);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">DEXTER <span>ESPORTES</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Roupas</a></li>
+                <li><a href="#">Tênis</a></li>
+                <li><a href="#">Bolas</a></li>
+                <li><a href="#">Ofertas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-banner">
+        <h1>SUPERE SEUS LIMITES</h1>
+        <p>A melhor tecnologia esportiva para o seu desempenho.</p>
+    </section>
+
+    <div class="faixa-estampada">
+        FRETE GRÁTIS • QUALIDADE PREMIUM • DEXTER ELITE • ALTA PERFORMANCE
+    </div>
+
+    <div class="container">
+        <div class="grid-produtos">
+            
+            <div class="produto-card">
+                <div class="img-placeholder">👟</div>
+                <h3>Tênis Ultra Boost X</h3>
+                <span class="preco">R$ 599,90</span>
+                <a href="https://wa.me/5548988146267" class="btn-whatsapp">Comprar Agora</a>
+            </div>
+
+            <div class="produto-card">
+                <div class="img-placeholder">👕</div>
+                <h3>Camiseta Dry-Fit Pro</h3>
+                <span class="preco">R$ 129,90</span>
+                <a href="https://wa.me/5548988146267" class="btn-whatsapp">Comprar Agora</a>
+            </div>
+
+            <div class="produto-card">
+                <div class="img-placeholder">⚽</div>
+                <h3>Bola de Futebol Elite</h3>
+                <span class="preco">R$ 189,90</span>
+                <a href="https://wa.me/5548988146267" class="btn-whatsapp">Comprar Agora</a>
+            </div>
+
+            <div class="produto-card">
+                <div class="img-placeholder">🏀</div>
+                <h3>Bola Basquete Official</h3>
+                <span class="preco">R$ 249,90</span>
+                <a href="https://wa.me/5548988146267" class="btn-whatsapp">Comprar Agora</a>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="https://wa.me/5548988146267" class="float-wpp" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="60">
+    </a>
+
+    <footer>
+        <p>&copy; 2023 Dexter Esportes - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>o
