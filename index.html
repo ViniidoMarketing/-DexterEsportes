@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dexter Esportes | Performance e Estilo</title>
+    <title>Dexter Esportes | Elite Performance</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --verde-escuro: #004d2c;
+            --verde-deep: #003d23;
+            --verde-brilhante: #28a745;
             --verde-lima: #32CD32;
             --dourado: #D4AF37;
+            --dourado-glow: rgba(212, 175, 55, 0.5);
             --branco: #ffffff;
-            --gelo: #f4f4f4;
+            --gelo: #fdfdfd;
+            --preto-transp: rgba(0, 0, 0, 0.7);
         }
 
         * {
@@ -19,255 +24,378 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--gelo);
+            color: #222;
             overflow-x: hidden;
         }
 
-        /* --- Header & Logo --- */
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--verde-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 5px; }
+
+        /* --- Header Profissional --- */
         header {
-            background-color: var(--verde-escuro);
-            padding: 20px 5%;
+            background: rgba(0, 61, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid var(--dourado);
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 1000;
+            z-index: 2000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
         }
 
         .logo {
-            color: var(--branco);
             font-weight: 900;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            color: var(--branco);
             text-transform: uppercase;
             letter-spacing: -1px;
+            text-decoration: none;
         }
 
-        .logo span {
-            color: var(--dourado);
-            font-style: italic;
-        }
+        .logo span { color: var(--dourado); font-style: italic; }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 25px;
-        }
-
+        nav ul { display: flex; list-style: none; align-items: center; }
+        nav ul li { margin-left: 30px; }
         nav ul li a {
             color: var(--branco);
             text-decoration: none;
             font-weight: 700;
-            transition: 0.3s;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            transition: 0.4s;
+            position: relative;
         }
 
-        nav ul li a:hover {
-            color: var(--dourado);
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px;
+            bottom: -5px; left: 0;
+            background: var(--dourado);
+            transition: 0.4s;
         }
 
-        /* --- Banner Principal --- */
-        .hero-banner {
-            background-color: var(--verde-lima);
-            height: 350px;
+        nav ul li a:hover::after { width: 100%; }
+        nav ul li a:hover { color: var(--dourado); }
+
+        /* --- Hero Banner com Paralaxe --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(var(--preto-transp), var(--preto-transp)), 
+                        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            flex-direction: column;
-            color: var(--verde-escuro);
-            padding: 20px;
+            padding-top: 80px;
         }
 
-        .hero-banner h1 {
-            font-size: 3rem;
+        .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(20px);
+            animation: fadeIn 1.2s forwards;
+        }
+
+        @keyframes fadeIn { to { transform: translateY(0); opacity: 1; } }
+
+        .hero h1 {
+            font-size: 4.5rem;
             font-weight: 900;
-            text-shadow: 2px 2px 0px var(--branco);
+            color: var(--branco);
+            line-height: 1;
+            margin-bottom: 20px;
         }
 
-        /* --- Faixa com Estampa Esportiva --- */
-        .faixa-estampada {
-            background-color: var(--verde-escuro);
-            background-image: radial-gradient(var(--dourado) 0.5px, transparent 0.5px);
-            background-size: 20px 20px; /* Simula uma estampa de textura esportiva/mesh */
-            color: var(--dourado);
-            padding: 15px 0;
-            text-align: center;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 5px;
+        .hero h1 span { color: var(--verde-lima); text-shadow: 0 0 20px rgba(50, 205, 50, 0.5); }
+
+        .btn-cta {
+            background: var(--dourado);
+            color: var(--verde-deep);
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.4s;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-cta:hover {
+            background: var(--verde-lima);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(50, 205, 50, 0.4);
+        }
+
+        /* --- Faixa Animada --- */
+        .scrolling-strip {
+            background: var(--verde-deep);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 20px 0;
             border-top: 2px solid var(--dourado);
             border-bottom: 2px solid var(--dourado);
         }
 
-        /* --- Grade de Produtos --- */
-        .container {
-            padding: 50px 5%;
+        .strip-content {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
         }
 
-        .grid-produtos {
+        .strip-content span {
+            color: var(--dourado);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-right: 50px;
+            text-transform: uppercase;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* --- Vitrine de Produtos --- */
+        .section-title {
+            text-align: center;
+            padding: 80px 0 40px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: var(--verde-deep);
+        }
+
+        .section-title span { color: var(--dourado); }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5% 100px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
         .produto-card {
             background: var(--branco);
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
-            /* Sombra dourada ao redor das abas/bordas conforme solicitado */
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: transform 0.3s ease;
             position: relative;
-            overflow: hidden;
+            transition: 0.5s;
+            /* Sombra Dourada ao redor (efeito "aba") */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05), 0 0 15px var(--dourado-glow);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        /* Efeito de movimento nos produtos */
         .produto-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 0 30px var(--dourado);
         }
 
-        .img-placeholder {
-            width: 100%;
-            height: 200px;
-            background: #eee;
-            margin-bottom: 15px;
+        .img-container {
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
-            font-size: 3rem;
-            animation: bounce 2s infinite ease-in-out; /* Movimento contínuo */
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 15px;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+            /* Elemento se mexendo */
+            animation: floating 4s infinite ease-in-out;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08) translateY(-5px); }
         }
 
         .produto-card h3 {
-            color: var(--verde-escuro);
+            font-size: 1.4rem;
+            color: var(--verde-deep);
             margin-bottom: 10px;
         }
 
         .preco {
-            color: var(--dourado);
-            font-weight: 900;
-            font-size: 1.2rem;
             display: block;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--dourado);
+            margin-bottom: 20px;
         }
 
-        /* --- Botão WhatsApp --- */
-        .btn-whatsapp {
-            background-color: #25d366;
+        .btn-buy {
+            background: #25d366;
             color: white;
             padding: 12px 25px;
-            border-radius: 50px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .btn-whatsapp:hover {
-            background-color: #128c7e;
-            transform: scale(1.05);
-        }
+        .btn-buy:hover { background: #128c7e; }
 
-        .float-wpp {
+        /* --- WhatsApp Flutuante --- */
+        .wpp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
+            bottom: 30px;
+            right: 30px;
+            z-index: 3000;
+            background: #25d366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-decoration: none;
+            transition: 0.4s;
         }
+
+        .wpp-float:hover { transform: scale(1.1) rotate(10deg); background: var(--branco); color: #25d366; }
 
         footer {
-            background: var(--verde-escuro);
-            color: white;
+            background: var(--verde-deep);
+            color: var(--branco);
+            padding: 60px 8% 20px;
             text-align: center;
-            padding: 30px;
-            margin-top: 50px;
+            border-top: 5px solid var(--dourado);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { display: none; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">DEXTER <span>ESPORTES</span></div>
+        <a href="#" class="logo">DEXTER <span>ESPORTES</span></a>
         <nav>
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Roupas</a></li>
-                <li><a href="#">Tênis</a></li>
-                <li><a href="#">Bolas</a></li>
-                <li><a href="#">Ofertas</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#vitrine">Produtos</a></li>
+                <li><a href="#colecoes">Coleções</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero-banner">
-        <h1>SUPERE SEUS LIMITES</h1>
-        <p>A melhor tecnologia esportiva para o seu desempenho.</p>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>DEXTER <span>ELITE</span></h1>
+            <p style="color: white; font-size: 1.2rem; margin-bottom: 30px;">Equipamentos de alta performance para quem busca o topo.</p>
+            <a href="#vitrine" class="btn-cta">VER COLEÇÃO PRO</a>
+        </div>
     </section>
 
-    <div class="faixa-estampada">
-        FRETE GRÁTIS • QUALIDADE PREMIUM • DEXTER ELITE • ALTA PERFORMANCE
-    </div>
-
-    <div class="container">
-        <div class="grid-produtos">
-            
-            <div class="produto-card">
-                <div class="img-placeholder">👟</div>
-                <h3>Tênis Ultra Boost X</h3>
-                <span class="preco">R$ 599,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-whatsapp">Comprar Agora</a>
-            </div>
-
-            <div class="produto-card">
-                <div class="img-placeholder">👕</div>
-                <h3>Camiseta Dry-Fit Pro</h3>
-                <span class="preco">R$ 129,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-whatsapp">Comprar Agora</a>
-            </div>
-
-            <div class="produto-card">
-                <div class="img-placeholder">⚽</div>
-                <h3>Bola de Futebol Elite</h3>
-                <span class="preco">R$ 189,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-whatsapp">Comprar Agora</a>
-            </div>
-
-            <div class="produto-card">
-                <div class="img-placeholder">🏀</div>
-                <h3>Bola Basquete Official</h3>
-                <span class="preco">R$ 249,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-whatsapp">Comprar Agora</a>
-            </div>
-
+    <div class="scrolling-strip">
+        <div class="strip-content">
+            <span>• TECNOLOGIA DRY-FIT</span>
+            <span>• FRETE GRÁTIS ACIMA DE R$ 299</span>
+            <span>• PARCELAMENTO EM 12X</span>
+            <span>• LANÇAMENTOS 2026</span>
+            <span>• TECNOLOGIA DRY-FIT</span>
+            <span>• FRETE GRÁTIS ACIMA DE R$ 299</span>
+            <span>• PARCELAMENTO EM 12X</span>
         </div>
     </div>
 
-    <a href="https://wa.me/5548988146267" class="float-wpp" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="60">
+    <h2 class="section-title" id="vitrine">Destaques <span>Dexter</span></h2>
+
+    <div class="container">
+        <div class="produto-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=600" alt="Tênis Profissional">
+            </div>
+            <h3>Tênis Dexter Speed Pro</h3>
+            <span class="preco">R$ 649,90</span>
+            <a href="https://wa.me/5548988146267" class="btn-buy" target="_blank">
+                <i class="fab fa-whatsapp"></i> Comprar agora
+            </a>
+        </div>
+
+        <div class="produto-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1581009146145-b5ef03a7403f?auto=format&fit=crop&q=80&w=600" alt="Camisa de Compressão">
+            </div>
+            <h3>Kit Compressão Elite</h3>
+            <span class="preco">R$ 189,00</span>
+            <a href="https://wa.me/5548988146267" class="btn-buy" target="_blank">
+                <i class="fab fa-whatsapp"></i> Comprar agora
+            </a>
+        </div>
+
+        <div class="produto-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=600" alt="Bola de Futebol">
+            </div>
+            <h3>Bola Oficial Dexter Match</h3>
+            <span class="preco">R$ 299,00</span>
+            <a href="https://wa.me/5548988146267" class="btn-buy" target="_blank">
+                <i class="fab fa-whatsapp"></i> Comprar agora
+            </a>
+        </div>
+
+        <div class="produto-card">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1517438476312-10d79c67750d?auto=format&fit=crop&q=80&w=600" alt="Luvas de Treino">
+            </div>
+            <h3>Luvas de Alta Tração</h3>
+            <span class="preco">R$ 125,00</span>
+            <a href="https://wa.me/5548988146267" class="btn-buy" target="_blank">
+                <i class="fab fa-whatsapp"></i> Comprar agora
+            </a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5548988146267" class="wpp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <footer>
-        <p>&copy; 2023 Dexter Esportes - Todos os direitos reservados.</p>
+        <h2 class="logo" style="margin-bottom: 20px;">DEXTER <span>ESPORTES</span></h2>
+        <p>Avenida da Performance, 1000 - Florianópolis, SC</p>
+        <div style="margin: 20px 0; font-size: 1.5rem;">
+            <i class="fab fa-instagram" style="margin: 0 15px; cursor: pointer;"></i>
+            <i class="fab fa-facebook" style="margin: 0 15px; cursor: pointer;"></i>
+            <i class="fab fa-youtube" style="margin: 0 15px; cursor: pointer;"></i>
+        </div>
+        <hr style="opacity: 0.1; margin: 20px 0;">
+        <p>&copy; 2026 Dexter Esportes. Transformando atletas.</p>
     </footer>
 
 </body>
-</html>o
+</html>
