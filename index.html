@@ -12,6 +12,7 @@
             --verde-deep: #003d23;
             --verde-claro: #1a5c3d;
             --verde-lima: #32CD32;
+            --verde-sombra: rgba(0, 61, 35, 0.15);
             --dourado: #D4AF37;
             --dourado-glow: rgba(212, 175, 55, 0.4);
             --branco: #ffffff;
@@ -80,7 +81,7 @@
 
         /* --- Hero Section --- */
         .hero {
-            height: 90vh;
+            height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
                         url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
             display: flex;
@@ -90,11 +91,6 @@
             margin-top: 60px;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-        }
-
         .hero-content h1 {
             font-size: 5rem;
             color: var(--branco);
@@ -102,7 +98,6 @@
             text-transform: uppercase;
             line-height: 0.9;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero-content h1 span { color: var(--verde-lima); }
@@ -136,7 +131,7 @@
 
         /* --- Layout de Categorias --- */
         section.categoria {
-            padding: 100px 8% 40px;
+            padding: 80px 8%;
         }
 
         .section-header {
@@ -151,7 +146,6 @@
             text-transform: uppercase;
             font-weight: 900;
             color: var(--verde-deep);
-            white-space: nowrap;
         }
 
         .section-header h2 span { color: var(--dourado); }
@@ -165,105 +159,93 @@
 
         .grid-produtos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* --- Card de Produto --- */
+        /* --- Card de Produto Atualizado --- */
         .card {
             background: var(--branco);
             border-radius: 20px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.05);
+            /* Sombreado Verde e Borda Dourada conforme solicitado */
+            border: 2px solid var(--dourado);
+            box-shadow: 0 10px 20px var(--verde-sombra);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
-            transform: translateY(-15px);
-            border-color: var(--dourado);
-            box-shadow: 0 20px 40px var(--dourado-glow);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 61, 35, 0.3);
+            background: #fff;
         }
 
         .img-box {
-            height: 280px;
+            height: 250px;
             overflow: hidden;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            background: #fdfdfd;
+            border-radius: 12px;
+            margin-bottom: 15px;
         }
 
         .img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.6s ease;
+            transition: 0.5s;
         }
 
-        .card:hover .img-box img { transform: scale(1.15); }
+        .card:hover .img-box img { transform: scale(1.1); }
 
         .tag {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 15px;
+            left: 15px;
             background: var(--verde-deep);
             color: var(--dourado);
-            padding: 5px 15px;
+            padding: 5px 12px;
             border-radius: 50px;
             font-weight: 900;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             z-index: 10;
         }
 
         .card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--verde-deep);
-            margin-bottom: 12px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 10px;
+            min-height: 45px;
         }
 
         .preco {
             display: block;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: var(--verde-claro);
-            margin-bottom: 20px;
-        }
-
-        .preco small {
-            font-size: 0.9rem;
-            color: #888;
-            font-weight: 400;
-            text-decoration: line-through;
-            margin-right: 10px;
+            margin-bottom: 15px;
         }
 
         .btn-comprar {
             background: #25d366;
             color: white;
             text-decoration: none;
-            padding: 15px;
+            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            border-radius: 12px;
+            gap: 8px;
+            border-radius: 10px;
             font-weight: 800;
-            transition: 0.4s;
+            transition: 0.3s;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        .btn-comprar:hover { 
-            background: #128c7e; 
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-        }
+        .btn-comprar:hover { background: #128c7e; }
 
         /* --- Floating WhatsApp --- */
         .wpp-btn {
@@ -285,50 +267,17 @@
             transition: 0.3s;
         }
 
-        .wpp-btn:hover { transform: scale(1.1) rotate(10deg); }
+        .wpp-btn:hover { transform: scale(1.1); }
 
-        /* --- Footer --- */
         footer {
             background: var(--preto-glass);
             color: white;
-            padding: 80px 8% 40px;
+            padding: 60px 8% 30px;
             border-top: 5px solid var(--dourado);
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-
-        .footer-grid h4 { 
-            color: var(--dourado); 
-            margin-bottom: 25px; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-        }
-
-        .footer-grid p, .footer-grid li { 
-            opacity: 0.7; 
-            line-height: 2; 
-            font-size: 0.9rem;
-            list-style: none;
-            margin-bottom: 10px;
-        }
-
-        .social-icons i {
-            font-size: 1.5rem;
-            margin-right: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .social-icons i:hover { color: var(--dourado); }
-
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3rem; }
-            header { padding: 15px 5%; }
+            .hero-content h1 { font-size: 2.5rem; }
             nav { display: none; }
         }
     </style>
@@ -342,7 +291,6 @@
                 <li><a href="#calcados">Calçados</a></li>
                 <li><a href="#vestuario">Vestuário</a></li>
                 <li><a href="#equipamentos">Equipamentos</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
             </ul>
         </nav>
     </header>
@@ -350,8 +298,8 @@
     <section class="hero">
         <div class="hero-content">
             <h1>ELITE <span>PERFORMANCE</span></h1>
-            <p style="color: var(--branco); font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9;">Supere seus limites com a tecnologia esportiva mais avançada de 2026.</p>
-            <a href="#calcados" class="btn-comprar" style="background: var(--dourado); color: var(--verde-deep); width: 250px; margin: 0 auto;">COLEÇÃO ATUAL</a>
+            <p style="color: white; margin-bottom: 30px;">A maior tecnologia esportiva do Brasil.</p>
+            <a href="https://wa.me/5548988146267?text=Olá!%20Tenho%20interesse%20nos%20produtos%20da%20Dexter%20Esportes" class="btn-comprar" style="background: var(--dourado); color: var(--verde-deep); width: 220px; margin: 0 auto;">FALAR COM CONSULTOR</a>
         </div>
     </section>
 
@@ -375,27 +323,39 @@
             <div class="card">
                 <span class="tag">MAIS VENDIDO</span>
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600" alt="Tênis"></div>
-                <h3>Dexter Speed Runner - Red Fury</h3>
-                <span class="preco"><small>R$ 699,00</small> R$ 549,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <h3>Dexter Speed Runner - Red</h3>
+                <span class="preco">R$ 549,90</span>
+                <a href="https://wa.me/5548988146267?text=Tenho%20interesse%20no%20Speed%20Runner" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=600" alt="Chuteira"></div>
-                <h3>Chuteira Dexter Gold Strike</h3>
+                <h3>Chuteira Gold Strike</h3>
                 <span class="preco">R$ 489,00</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267?text=Tenho%20interesse%20na%20Chuteira%20Gold" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600" alt="Sneaker"></div>
-                <h3>Sneaker Dexter Air White</h3>
+                <h3>Sneaker Air White</h3>
                 <span class="preco">R$ 399,00</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267?text=Tenho%20interesse%20no%20Sneaker%20Air" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=600" alt="Tênis"></div>
-                <h3>Dexter Stealth Black Edition</h3>
+                <h3>Stealth Black Edition</h3>
                 <span class="preco">R$ 459,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267?text=Tenho%20interesse%20no%20Stealth%20Black" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?q=80&w=600" alt="Casual"></div>
+                <h3>Dexter Urban Sport</h3>
+                <span class="preco">R$ 299,00</span>
+                <a href="https://wa.me/5548988146267?text=Tenho%20interesse%20no%20Urban%20Sport" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=600" alt="Nike"></div>
+                <h3>Dexter Volt Neon</h3>
+                <span class="preco">R$ 510,00</span>
+                <a href="https://wa.me/5548988146267?text=Tenho%20interesse%20no%20Volt%20Neon" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
         </div>
     </section>
@@ -407,29 +367,41 @@
         </div>
         <div class="grid-produtos">
             <div class="card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1581009146145-b5ef03a7403f?q=80&w=600" alt="Compressão"></div>
-                <h3>Camiseta Compressão Titanium</h3>
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1581009146145-b5ef03a7403f?q=80&w=600" alt="Camiseta"></div>
+                <h3>Compressão Titanium</h3>
                 <span class="preco">R$ 159,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=600" alt="Corta vento"></div>
-                <h3>Corta-Vento Dexter UltraLight</h3>
+                <h3>Corta-Vento UltraLight</h3>
                 <span class="preco">R$ 289,00</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
-                <span class="tag">LANÇAMENTO</span>
+                <span class="tag">NOVO</span>
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600" alt="Conjunto"></div>
-                <h3>Conjunto Feminino Sport-Lux</h3>
+                <h3>Conjunto Sport-Lux</h3>
                 <span class="preco">R$ 320,00</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?q=80&w=600" alt="Shorts"></div>
-                <h3>Shorts Dexter Training 2 em 1</h3>
+                <h3>Shorts Training 2 em 1</h3>
                 <span class="preco">R$ 129,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1571945153237-4929e783ee4a?q=80&w=600" alt="Regata"></div>
+                <h3>Regata Dry-Fit Pro</h3>
+                <span class="preco">R$ 89,90</span>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=600" alt="Calça"></div>
+                <h3>Calça Jogger Tech</h3>
+                <span class="preco">R$ 199,00</span>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
         </div>
     </section>
@@ -442,73 +414,49 @@
         <div class="grid-produtos">
             <div class="card">
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600" alt="Bola"></div>
-                <h3>Bola Dexter Match Day Pro</h3>
+                <h3>Bola Match Day Pro</h3>
                 <span class="preco">R$ 299,00</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?q=80&w=600" alt="Mochila"></div>
-                <h3>Mochila Dexter Cargo 40L</h3>
+                <h3>Mochila Cargo 40L</h3>
                 <span class="preco">R$ 259,00</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=600" alt="Smartwatch"></div>
-                <h3>Dexter SportWatch V2</h3>
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=600" alt="Watch"></div>
+                <h3>SportWatch V2</h3>
                 <span class="preco">R$ 849,00</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
             <div class="card">
                 <div class="img-box"><img src="https://images.unsplash.com/photo-1634350837739-949488bc39bc?q=80&w=600" alt="Boxe"></div>
-                <h3>Kit Dexter Combat Boxe</h3>
+                <h3>Kit Combat Boxe</h3>
                 <span class="preco">R$ 199,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar Agora</a>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600" alt="Halter"></div>
+                <h3>Kit Halteres Ajustáveis</h3>
+                <span class="preco">R$ 450,00</span>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1599058917233-557450704426?q=80&w=600" alt="Tapete"></div>
+                <h3>Tapete Yoga Dexter</h3>
+                <span class="preco">R$ 110,00</span>
+                <a href="https://wa.me/5548988146267" class="btn-comprar"><i class="fab fa-whatsapp"></i> Comprar</a>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/5548988146267" class="wpp-btn" target="_blank">
+    <a href="https://wa.me/5548988146267?text=Olá!%20Tenho%20interesse%20nos%20produtos%20da%20Dexter%20Esportes" class="wpp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-                <h2 class="logo" style="margin-bottom: 20px;">DEXTER <span>ESPORTES</span></h2>
-                <p>Nossa missão é elevar o potencial humano através do esporte e da tecnologia. Desde 2018 liderando o mercado de alta performance.</p>
-                <div class="social-icons" style="margin-top: 20px;">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-youtube"></i>
-                </div>
-            </div>
-            <div>
-                <h4>Categorias</h4>
-                <ul>
-                    <li>Tênis de Corrida</li>
-                    <li>Roupas Térmicas</li>
-                    <li>Acessórios de Academia</li>
-                    <li>Suplementação</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Atendimento</h4>
-                <ul>
-                    <li>Fale Conosco</li>
-                    <li>Trocas e Devoluções</li>
-                    <li>Termos de Uso</li>
-                    <li>Trabalhe Conosco</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Localização</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Av. da Performance, 1000 - Florianópolis, SC</p>
-                <p><i class="fas fa-phone"></i> (48) 98814-6267</p>
-                <p><i class="fas fa-envelope"></i> elite@dexter.com.br</p>
-            </div>
-        </div>
-        <hr style="opacity: 0.1; margin-bottom: 30px;">
-        <p style="text-align: center; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Dexter Esportes. Todos os direitos reservados. CNPJ: 00.123.456/0001-00</p>
+        <p style="text-align: center; font-size: 0.9rem;">&copy; 2026 Dexter Esportes. Elite Performance em cada detalhe.</p>
     </footer>
 
 </body>
