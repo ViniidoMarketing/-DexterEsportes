@@ -13,7 +13,7 @@
             --verde-claro: #1a5c3d;
             --verde-lima: #32CD32;
             --dourado: #D4AF37;
-            --dourado-glow: 0 0 20px rgba(212, 175, 55, 0.6);
+            --dourado-glow: 0 0 25px rgba(212, 175, 55, 0.7);
             --branco: #ffffff;
             --gelo: #f8f9fa;
             --preto-glass: rgba(0, 0, 0, 0.9);
@@ -29,8 +29,8 @@
 
         body {
             background-color: var(--gelo);
-            /* Borda sombreada dourada nas laterais do site */
-            box-shadow: inset 0 0 50px var(--dourado-glow);
+            /* Sombreado Dourado nas bordas do site */
+            box-shadow: inset 0 0 60px var(--dourado-glow);
             min-height: 100vh;
         }
 
@@ -72,9 +72,9 @@
         nav ul li a:hover { color: var(--dourado); }
 
         .hero {
-            height: 60vh;
+            height: 50vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -89,12 +89,12 @@
 
         section.categoria {
             padding: 60px 5%;
-            margin: 20px auto;
-            max-width: 1400px;
+            margin: 40px auto;
+            max-width: 1300px;
             background: var(--branco);
-            border: 1px solid var(--dourado);
-            box-shadow: var(--dourado-glow);
-            border-radius: 10px;
+            border: 2px solid var(--dourado);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
         }
 
         .section-header {
@@ -106,7 +106,7 @@
 
         .section-header h2 { font-size: 1.8rem; text-transform: uppercase; color: var(--verde-deep); }
         .section-header h2 span { color: var(--dourado); }
-        .line { height: 2px; background: var(--dourado); flex-grow: 1; }
+        .line { height: 3px; background: var(--dourado); flex-grow: 1; }
 
         .grid-produtos {
             display: grid;
@@ -118,53 +118,58 @@
             background: white;
             border-radius: 12px;
             padding: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid #eee;
             transition: 0.4s;
             display: flex;
             flex-direction: column;
-            position: relative;
+            text-align: center;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            transform: translateY(-10px);
+            box-shadow: var(--dourado-glow);
             border-color: var(--dourado);
         }
 
         .img-box {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
             border-radius: 8px;
             margin-bottom: 15px;
+            background: #f4f4f4;
         }
 
-        .img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .card:hover .img-box img { transform: scale(1.1); }
 
         .btn-360 {
             display: inline-block;
             margin-bottom: 10px;
             font-size: 0.8rem;
-            color: var(--verde-deep);
+            color: var(--dourado);
             text-decoration: none;
             font-weight: 700;
-            border: 1px solid var(--verde-deep);
-            padding: 5px;
-            border-radius: 4px;
+            border: 1px solid var(--dourado);
+            padding: 8px;
+            border-radius: 20px;
             transition: 0.3s;
         }
 
-        .btn-360:hover { background: var(--verde-deep); color: white; }
+        .btn-360:hover { background: var(--dourado); color: white; }
 
-        .preco { font-size: 1.2rem; font-weight: 900; color: var(--verde-claro); margin: 10px 0; }
+        .preco { font-size: 1.4rem; font-weight: 900; color: var(--verde-claro); margin: 10px 0; }
 
         .btn-comprar {
             background: #25d366;
             color: white;
             text-decoration: none;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
+            padding: 12px;
+            border-radius: 8px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             margin-top: auto;
         }
 
@@ -192,11 +197,6 @@
             text-align: center;
             border-top: 5px solid var(--dourado);
         }
-
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .hero h1 { font-size: 2rem; }
-        }
     </style>
 </head>
 <body>
@@ -208,14 +208,14 @@
                 <li><a href="#tenis">Tênis</a></li>
                 <li><a href="#fit">Roupas Fit</a></li>
                 <li><a href="#bolas">Bolas</a></li>
-                <li><a href="https://wa.me/5548988146267">Contato</a></li>
+                <li><a href="https://wa.me/5548988146267">Fale Conosco</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>SOMOS A <span>DEXTER</span></h1>
-        <p style="color: white; letter-spacing: 2px;">Elite em cada detalhe. Performance em cada fibra.</p>
+        <h1>DOMINE COM A <span>DEXTER</span></h1>
+        <p style="color: white; letter-spacing: 2px; font-weight: 400;">Performance de Elite para Atletas de Elite.</p>
     </section>
 
     <section class="categoria" id="tenis">
@@ -224,18 +224,30 @@
             <div class="line"></div>
         </div>
         <div class="grid-produtos">
+            <div class="card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Speed Runner"></div>
+                <h3>Speed Runner Red</h3>
+                <a href="https://www.google.com/search?q=360+view+sneaker" target="_blank" class="btn-360"><i class="fas fa-arrows-spin"></i> GIRO 360°</a>
+                <span class="preco">R$ 549,90</span>
+                <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+            </div>
+            <div class="card">
+                <div class="img-box"><img src="http://googleusercontent.com/image_generation_content/1" alt="Strike Control Green"></div>
+                <h3>Strike Control Green</h3>
+                <a href="https://www.google.com/search?q=360+view+green+sneaker" target="_blank" class="btn-360"><i class="fas fa-arrows-spin"></i> GIRO 360°</a>
+                <span class="preco">R$ 429,00</span>
+                <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+            </div>
             <script>
-                const tenisNames = ["Speed Runner", "Strike Control", "Gold Edition", "Urban Air", "Trail Master", "Dark Performance", "Cloud Walk", "Bolt Neon", "Titanium Step"];
-                for(let i=1; i<=9; i++) {
+                for(let i=3; i<=9; i++) {
                     document.write(`
-                        <div class="card">
-                            <div class="img-box"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Tênis"></div>
-                            <h3>${tenisNames[i-1]}</h3>
-                            <a href="https://www.google.com/search?q=360+view+sneaker" target="_blank" class="btn-360"><i class="fas fa-sync"></i> Ver em 360°</a>
-                            <span class="preco">R$ 499,90</span>
-                            <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank">Comprar via WhatsApp</a>
-                        </div>
-                    `);
+                    <div class="card">
+                        <div class="img-box"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500" alt="Tênis"></div>
+                        <h3>Modelo Elite v${i}</h3>
+                        <a href="#" class="btn-360"><i class="fas fa-arrows-spin"></i> GIRO 360°</a>
+                        <span class="preco">R$ 480,00</span>
+                        <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+                    </div>`);
                 }
             </script>
         </div>
@@ -248,17 +260,15 @@
         </div>
         <div class="grid-produtos">
             <script>
-                const fitNames = ["Camiseta Titanium", "Corta Vento Wind", "Conjunto Lux", "Shorts 2.0", "Regata Mesh", "Moletom Tech", "Calça Compressão", "Top Strong", "Jaqueta Hybrid"];
                 for(let i=1; i<=9; i++) {
                     document.write(`
-                        <div class="card">
-                            <div class="img-box"><img src="https://images.unsplash.com/photo-1581009146145-b5ef03a7403f?auto=format&fit=crop&w=400&q=80" alt="Roupa Fit"></div>
-                            <h3>${fitNames[i-1]}</h3>
-                            <a href="https://www.google.com/search?q=360+view+clothing+apparel" target="_blank" class="btn-360"><i class="fas fa-sync"></i> Ver Detalhes</a>
-                            <span class="preco">R$ 189,00</span>
-                            <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank">Comprar via WhatsApp</a>
-                        </div>
-                    `);
+                    <div class="card">
+                        <div class="img-box"><img src="https://images.unsplash.com/photo-1581009146145-b5ef03a7403f?w=500" alt="Fit"></div>
+                        <h3>Artigo Fit Elite ${i}</h3>
+                        <a href="#" class="btn-360"><i class="fas fa-arrows-spin"></i> GIRO 360°</a>
+                        <span class="preco">R$ 159,90</span>
+                        <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+                    </div>`);
                 }
             </script>
         </div>
@@ -271,17 +281,15 @@
         </div>
         <div class="grid-produtos">
             <script>
-                const ballNames = ["Match Day Official", "Champions League", "Premier Gold", "Street Skill", "Indoor Pro", "Beach Volley Dexter", "Basket Elite", "Rugby Titan", "Futsal Master"];
                 for(let i=1; i<=9; i++) {
                     document.write(`
-                        <div class="card">
-                            <div class="img-box"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=400&q=80" alt="Bola"></div>
-                            <h3>${ballNames[i-1]}</h3>
-                            <a href="https://sirv.com/examples/360-spin/" target="_blank" class="btn-360"><i class="fas fa-sync"></i> Girar 360°</a>
-                            <span class="preco">R$ 299,00</span>
-                            <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank">Comprar via WhatsApp</a>
-                        </div>
-                    `);
+                    <div class="card">
+                        <div class="img-box"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500" alt="Bolas"></div>
+                        <h3>Bola Match Day ${i}</h3>
+                        <a href="#" class="btn-360"><i class="fas fa-arrows-spin"></i> GIRO 360°</a>
+                        <span class="preco">R$ 299,00</span>
+                        <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+                    </div>`);
                 }
             </script>
         </div>
@@ -293,8 +301,7 @@
 
     <footer>
         <p style="font-weight: 900; letter-spacing: 2px;">DEXTER ESPORTES &copy; 2026</p>
-        <p style="font-size: 0.8rem; opacity: 0.8;">Florianópolis/SC | Fale Conosco: (48) 98814-6267</p>
-        <p style="font-size: 0.7rem; margin-top: 10px; color: var(--dourado);">Sua melhor versão começa aqui.</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Florianópolis/SC | WhatsApp: (48) 98814-6267</p>
     </footer>
 
 </body>
