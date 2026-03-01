@@ -11,6 +11,7 @@
         :root {
             --azul-mar: #0077b6;
             --laranja-solar: #ff8c00;
+            --dourado: #ffd700;
             --branco: #ffffff;
             --escuro: #333333;
         }
@@ -53,7 +54,6 @@
         /* --- Banner Principal (HERO) --- */
         .hero {
             height: 85vh;
-            /* Imagem de entrega veloz com overlay escuro para leitura */
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                         url('https://images.unsplash.com/photo-1559348349-86f1f65817fe?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
             display: flex;
@@ -63,24 +63,31 @@
             text-align: center;
             color: white;
             padding-top: 80px;
-            background-attachment: fixed; /* Efeito Parallax elegante */
+            background-attachment: fixed;
         }
 
+        /* TÍTULO COM CONTORNO DOURADO */
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-size: 4.5rem;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-weight: 900;
+            color: white;
+            /* Efeito de contorno dourado */
+            -webkit-text-stroke: 2px var(--dourado);
+            text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5), 4px 4px 10px rgba(0,0,0,0.8);
         }
 
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 35px;
-            font-weight: 300;
-            background: rgba(255, 140, 0, 0.8);
-            padding: 5px 20px;
-            border-radius: 5px;
+            font-weight: 400;
+            background: rgba(0, 119, 182, 0.85); /* Azul mar com transparência */
+            padding: 8px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--dourado);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         /* --- Botões --- */
@@ -100,7 +107,7 @@
         }
 
         .btn-whatsapp:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
             background-color: #1ebe57;
         }
@@ -155,6 +162,7 @@
             backdrop-filter: blur(5px);
             border-radius: 15px;
             overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .schedule-table th, .schedule-table td {
@@ -164,6 +172,7 @@
 
         .schedule-table th {
             background: rgba(0,0,0,0.2);
+            color: var(--dourado);
             text-transform: uppercase;
         }
 
@@ -182,8 +191,8 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
+            .hero h1 { font-size: 2.8rem; -webkit-text-stroke: 1px var(--dourado); }
+            .hero p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -192,7 +201,7 @@
     <header>
         <div class="logo-text">ILHA EXPRESS <span>SUL</span></div>
         <nav>
-            <a href="https://wa.me/5548999999999" class="btn-whatsapp" style="padding: 10px 20px; font-size: 0.9rem;">
+            <a href="https://wa.me/5548999999999" class="btn-whatsapp" style="padding: 10px 20px; font-size: 0.8rem;">
                 <i class="fab fa-whatsapp"></i> Chamar agora
             </a>
         </nav>
@@ -229,7 +238,6 @@
 
     <section class="schedule">
         <h2>Horários de Saída e Coleta</h2>
-        <p>Organize seus envios conforme nossa disponibilidade:</p>
         <table class="schedule-table">
             <thead>
                 <tr>
