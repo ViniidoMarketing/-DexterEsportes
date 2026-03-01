@@ -28,7 +28,7 @@
             background-color: #f4f7f6;
         }
 
-        /* --- Header & Navigation --- */
+        /* --- Header --- */
         header {
             background: var(--branco);
             padding: 1rem 5%;
@@ -50,11 +50,12 @@
 
         .logo-text span { color: var(--laranja-solar); }
 
-        /* --- Banner Principal --- */
+        /* --- Banner Principal (HERO) --- */
         .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        urlurl('banner.jpg')no-repeat center center/cover;
+            height: 85vh;
+            /* Imagem de entrega veloz com overlay escuro para leitura */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1559348349-86f1f65817fe?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -62,100 +63,127 @@
             text-align: center;
             color: white;
             padding-top: 80px;
+            background-attachment: fixed; /* Efeito Parallax elegante */
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            font-style: italic;
+            font-size: 1.5rem;
+            margin-bottom: 35px;
+            font-weight: 300;
+            background: rgba(255, 140, 0, 0.8);
+            padding: 5px 20px;
+            border-radius: 5px;
         }
 
         /* --- Botões --- */
         .btn-whatsapp {
             background-color: #25d366;
             color: white;
-            padding: 15px 30px;
+            padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
 
         .btn-whatsapp:hover {
-            transform: scale(1.05);
-            background-color: #128c7e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            background-color: #1ebe57;
         }
 
-        /* --- Serviços & Agendamento --- */
+        /* --- Serviços --- */
         .services {
-            padding: 80px 10%;
+            padding: 100px 10%;
             text-align: center;
         }
 
         .grid-services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
         .service-card {
             background: white;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--laranja-solar);
         }
 
         .service-card i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--azul-mar);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        /* --- Tabela de Agenda Simples --- */
+        /* --- Agenda --- */
         .schedule {
             background: var(--azul-mar);
             color: white;
-            padding: 60px 10%;
+            padding: 80px 10%;
             text-align: center;
         }
 
         .schedule-table {
             width: 100%;
-            max-width: 800px;
-            margin: 30px auto;
+            max-width: 900px;
+            margin: 40px auto;
             border-collapse: collapse;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
             overflow: hidden;
         }
 
         .schedule-table th, .schedule-table td {
-            padding: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .schedule-table th {
+            background: rgba(0,0,0,0.2);
+            text-transform: uppercase;
         }
 
         /* --- Footer --- */
         footer {
-            background: #222;
-            color: white;
+            background: #111;
+            color: #888;
             text-align: center;
-            padding: 40px;
+            padding: 50px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -164,7 +192,7 @@
     <header>
         <div class="logo-text">ILHA EXPRESS <span>SUL</span></div>
         <nav>
-            <a href="https://wa.me/+55 48 8444-0056 class="btn-whatsapp" style="padding: 8px 20px; font-size: 0.9rem;">
+            <a href="https://wa.me/5548999999999" class="btn-whatsapp" style="padding: 10px 20px; font-size: 0.9rem;">
                 <i class="fab fa-whatsapp"></i> Chamar agora
             </a>
         </nav>
@@ -173,69 +201,72 @@
     <section class="hero">
         <h1>Ilha Express Sul</h1>
         <p>"Rápido como o vento da ilha"</p>
-        <a href="https://wa.me/+55 48 8444-0056?text=Olá! Gostaria de agendar uma entrega." class="btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> AGENDAR ENTREGA
+        <a href="https://wa.me/5548999999999?text=Olá! Gostaria de agendar uma entrega rápida." class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> AGENDAR ENTREGA AGORA
         </a>
     </section>
 
     <section class="services">
-        <h2>Por que nos escolher?</h2>
+        <h2>Excelência em Logística sobre Rodas</h2>
         <div class="grid-services">
             <div class="service-card">
                 <i class="fas fa-bicycle"></i>
-                <h3>Sustentabilidade</h3>
-                <p>Entregas feitas de bike, sem emissão de CO2 e com agilidade no trânsito.</p>
+                <h3>Eco-Logística</h3>
+                <p>Reduzimos a pegada de carbono da sua empresa com entregas 100% sustentáveis.</p>
             </div>
             <div class="service-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Segurança</h3>
-                <p>Seu pacote é transportado com o máximo cuidado e responsabilidade.</p>
+                <i class="fas fa-bolt"></i>
+                <h3>Agilidade Urbana</h3>
+                <p>Nossas bikes não ficam presas em engarrafamentos. Sua entrega no tempo recorde.</p>
             </div>
             <div class="service-card">
-                <i class="fas fa-clock"></i>
-                <h3>Rapidez</h3>
-                <p>Conhecemos cada atalho da ilha para garantir que chegue no prazo.</p>
+                <i class="fas fa-user-shield"></i>
+                <h3>Total Segurança</h3>
+                <p>Protocolos rigorosos de manuseio para que seu produto chegue impecável.</p>
             </div>
         </div>
     </section>
 
     <section class="schedule">
-        <h2>Nossa Agenda de Atendimento</h2>
-        <p>Escolha o melhor horário e nos chame no zap!</p>
+        <h2>Horários de Saída e Coleta</h2>
+        <p>Organize seus envios conforme nossa disponibilidade:</p>
         <table class="schedule-table">
             <thead>
                 <tr>
-                    <th>Dias</th>
-                    <th>Horário</th>
-                    <th>Status</th>
+                    <th>Período</th>
+                    <th>Horário de Operação</th>
+                    <th>Tipo de Serviço</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Segunda a Sexta</td>
-                    <td>08:00 - 18:00</td>
-                    <td>Disponível</td>
+                    <td>08:00 às 18:00</td>
+                    <td>Express e Agendado</td>
                 </tr>
                 <tr>
                     <td>Sábados</td>
-                    <td>08:00 - 12:00</td>
-                    <td>Disponível</td>
+                    <td>08:00 às 13:00</td>
+                    <td>Agendamento Prévio</td>
                 </tr>
                 <tr>
-                    <td>Domingos</td>
-                    <td>---</td>
-                    <td>Apenas Urgências</td>
+                    <td>Plantão</td>
+                    <td>Sob Consulta</td>
+                    <td>Urgências Especiais</td>
                 </tr>
             </tbody>
         </table>
-        <a href="https://wa.me/+55 48 8444-0056 class="btn-whatsapp">
-            Consultar Disponibilidade em Tempo Real
+        <a href="https://wa.me/5548999999999" class="btn-whatsapp" style="background-color: var(--laranja-solar);">
+            <i class="fas fa-calendar-check"></i> CONSULTAR AGENDA HOJE
         </a>
     </section>
 
     <footer>
-        <p>&copy; 2026 Ilha Express Sul - Entregas Ecológicas</p>
-        <p>Siga-nos: @ilhaexpresssul</p>
+        <div class="footer-logo">ILHA EXPRESS SUL</div>
+        <p>&copy; 2026 - Florianópolis e Região Sul. Todos os direitos reservados.</p>
+        <p style="margin-top: 10px;">
+            <a href="#" style="color: #25d366; text-decoration: none;">Instagram: @ilhaexpresssul</a>
+        </p>
     </footer>
 
 </body>
